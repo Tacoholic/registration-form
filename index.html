@@ -4,49 +4,47 @@
 <title>Really Cool Registration Page</title>
 </head>
 
-
-
-    <h1>Welcome, please register!</h1>
+    <h1>Hello, please register!</h1>
         <form class="form">
-            <div class="Name">
-                <label>Name</label>
-                <input></input?
-            </div>
-            <div class="LastName">
-                <label>Last Name</label>
-                <input></input?
-            </div>
-            <div class="Email">
-                <label>Email</label>
-                <input></input?
-            </div>
-            <div class="PassWd">
-                <label>Password</label>
-                <input></input?
-            </div>
-            <div class="ConfirmPswd">
-                <label>Confirm Password</label>
-                <input></input?
+            <div class="container">
+                <div class="Name">
+                    <input id="Name" placeholder="Enter Your Name"></input>
+                </div>
+                <div class="LastName">
+                    <input id="LastName" placeholder="Enter Your Last Name"></input>
+                </div>
+                <div class="Email">
+                    <input placeholder="Enter Your Email"></input>
+                </div>
+                <div class="PassWd">
+                    <input placeholder="Enter Your Password"></input>
+                </div>
+                <div class="ConfirmPswd">
+                    <input placeholder="Confirm Your Password"></input>
+                </div>
             </div>
         </form>
-
 </html>
 
 
 
 <style>
 
-
 h1 {
   font-size: 20px;
+  text-align: center;
 }
 
 .form {
-    align-content: center;
-    background: red;
+    background: rgb(21, 192, 214);
     border-radius: 6px;
-    max-width: 600px;
+    width: 350px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 
 
