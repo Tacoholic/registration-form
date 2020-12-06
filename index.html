@@ -6,16 +6,35 @@
 <h1>Hello, please register!</h1>
 <div class="container">
     <div class="form">
-            <input placeholder="Enter Your Name"></input>
-            <input placeholder="Enter Your Last Name"></input>
-            <input placeholder="Enter Your Email"></input>
+       <label>
+           <span>Name</span></br>
+            <input type="text" placeholder="John"></input>
+        </label>
+        <label>
+            <span>Last Name</span></br>
+            <input placeholder="Doe"></input>
+        </label>
+        <label>
+            <span>Email</span></br>
+            <input placeholder="johndoe@email.com"></input>
+        </label>
+        <label>
+            <span>Password</span></br>
             <input placeholder="Enter Your Password"></input>
-            <input placeholder="Confirm Your Password"></input>          
+        </label>
+        <label>
+            <span>Confirm your password</span></br>
+            <input placeholder="Reenter Password"></input>   
+        </label>       
     </div>
 </div>
 </html>
 
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
+
+<link rel="stylesheet"
+href="https://fonts.googleapis.com/css?family=Poppins">
 
 <style>
 
@@ -37,12 +56,23 @@ h1 {
     align-items: center;
     display: grid;
     place-items: center;
+    border:2px solid black;
 }
 
 input {
  width: 375px;
  height: 25px;
+ border-radius: 5px;
+ border:2px solid black;
 }
 
+input::placeholder {
+    color:lightslategray;
+}
 
+label {
+    font-weight: bold;
+    font-family: 'Poppins', serif;
+    
+}
 </style>
