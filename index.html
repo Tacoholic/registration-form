@@ -3,27 +3,16 @@
 <head>
 <title>Really Cool Registration Page</title>
 </head>
-
-    <h1>Hello, please register!</h1>
-        <form class="form">
-            <div class="container">
-                <div class="Name">
-                    <input id="Name" placeholder="Enter Your Name"></input>
-                </div>
-                <div class="LastName">
-                    <input id="LastName" placeholder="Enter Your Last Name"></input>
-                </div>
-                <div class="Email">
-                    <input placeholder="Enter Your Email"></input>
-                </div>
-                <div class="PassWd">
-                    <input placeholder="Enter Your Password"></input>
-                </div>
-                <div class="ConfirmPswd">
-                    <input placeholder="Confirm Your Password"></input>
-                </div>
-            </div>
-        </form>
+<h1>Hello, please register!</h1>
+<div class="container">
+    <div class="form">
+            <input placeholder="Enter Your Name"></input>
+            <input placeholder="Enter Your Last Name"></input>
+            <input placeholder="Enter Your Email"></input>
+            <input placeholder="Enter Your Password"></input>
+            <input placeholder="Confirm Your Password"></input>          
+    </div>
+</div>
 </html>
 
 
@@ -34,18 +23,21 @@ h1 {
   font-size: 20px;
   text-align: center;
 }
-
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .form {
     background: rgb(21, 192, 214);
     border-radius: 6px;
-    width: 350px;
-    height: 200px;
+    width: 450px;
+    height: 300px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
 }
-
-
 
 
 </style>
