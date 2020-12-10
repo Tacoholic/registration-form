@@ -6,28 +6,28 @@
 <h1>Hello, please register!</h1>
 <div class="container">
     <div class="form">
-       <label>
-           <span>Name</span></br>
+       <div class="Name">
+           <label>Full Name</label></br>
             <input type="text" placeholder="John"></input>
-        </label>
-        <label>
-            <span>Last Name</span></br>
-            <input placeholder="Doe"></input>
-        </label>
-        <label>
-            <span>Email</span></br>
-            <input placeholder="johndoe@email.com"></input>
-        </label>
-        <label>
-            <span>Password</span></br>
-            <input placeholder="Enter Your Password"></input>
-        </label>
-        <label>
-            <span>Confirm your password</span></br>
-            <input placeholder="Reenter Password"></input>   
-        </label>   
-        <button>Submit</button>
-        <button>Cancel</button>    
+        </div>
+        <div class="Name">
+            <label>Email</label></br>
+             <input type="text" placeholder="johndoe@email.com"></input>
+         </div>
+         <div class="Name">
+            <label>Phone Number</label></br>
+             <input type="text" placeholder="(123) 456-7890"></input>
+         </div>
+         <div class="Name">
+            <label>Password</label></br>
+             <input type="text" placeholder="Password"></input>
+         </div>
+         <div class="Name">
+            <label>Confirm Password</label></br>
+             <input type="text" placeholder="Confirm Password"></input>
+         </div>
+        <button>Sign Me Up!</button>
+  
     </div>
 </div>
 </html>
@@ -38,17 +38,25 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
 
+<script src="https://kit.fontawesome.com/776e94f922.js" crossorigin="anonymous"></script>
+
+
+<scrip>
+
+    
+</scrip>
+
 <style>
 
 h1 {
-  font-size: 30px;
-  text-align: center;
-  font-family: 'Nunito', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
 }
 .container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 .form {
     background: rgb(21, 192, 214);
@@ -63,10 +71,10 @@ h1 {
 }
 
 input {
- width: 375px;
- height: 25px;
- border-radius: 5px;
- border:2px solid black;
+    width: 375px;
+    height: 25px;
+    border-radius: 5px;
+    border:2px solid black;
 }
 
 input::placeholder {
@@ -81,7 +89,7 @@ label {
     font-weight: bold;
     font-family: 'Poppins', serif;
     font-size: 15px;
-    
 }
+
 
 </style>
