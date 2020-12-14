@@ -5,30 +5,29 @@
 </head>
 <h1>Hello, please register!</h1>
 <div class="container">
-    <div class="form">
-       <div class="Name">
+    <form class="form" onsubmit="validateForm(event)">
+       <div>
            <label>Full Name</label></br>
-            <input type="text" placeholder="John"></input>
+            <input type="text" placeholder="John" id="FullName"></input>
         </div>
-        <div class="Name">
+        <div>
             <label>Email</label></br>
-             <input type="text" placeholder="johndoe@email.com"></input>
+             <input type="text" placeholder="johndoe@email.com" id="Email"></input>
          </div>
-         <div class="Name">
+         <div>
             <label>Phone Number</label></br>
-             <input type="text" placeholder="(123) 456-7890"></input>
+             <input type="text" placeholder="(123) 456-7890" id="PhoneNumber"></input>
          </div>
-         <div class="Name">
+         <div>
             <label>Password</label></br>
-             <input type="text" placeholder="Password"></input>
+             <input type="text" placeholder="Password" id="Password"></input>
          </div>
-         <div class="Name">
+         <div>
             <label>Confirm Password</label></br>
-             <input type="text" placeholder="Confirm Password"></input>
+             <input type="text" placeholder="Confirm Password" id="ConfirmPassword"></input>
          </div>
-        <button>Sign Me Up!</button>
-  
-    </div>
+        <button type="submit" value="submit">Sign Me Up!</button>
+    </form>
 </div>
 </html>
 
@@ -41,10 +40,17 @@
 <script src="https://kit.fontawesome.com/776e94f922.js" crossorigin="anonymous"></script>
 
 
-<scrip>
+<script>
+      function validateForm(e) {
+       var eName = document.getElementById("FullName");
+      if(eName.value === ""){
+          e.preventDefault();
+          alert("Please enter your name");
+          return false;
+      }   
+   }
 
-    
-</scrip>
+</script>
 
 <style>
 
