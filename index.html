@@ -43,11 +43,18 @@
 <script>
       function validateForm(e) {
        var eName = document.getElementById("FullName");
-      if(eName.value === ""){
+       var eMail = document.getElementById("Email");
+        if(eName.value === ""){
           e.preventDefault();
           alert("Please enter your name");
           return false;
-      }   
+        }   
+        if(eMail.value === ""){
+            e.preventDefault();
+            alert("Please enter your email");
+            return false;
+        }
+
    }
 
 </script>
