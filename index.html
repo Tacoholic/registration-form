@@ -47,6 +47,7 @@
        var ePhone = document.getElementById("PhoneNumber");
        var ePass = document.getElementById("Password");
        var eCnfmPass = document.getElementById("ConfirmPassword")
+       var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
         if(eName.value === ""){
           e.preventDefault();
@@ -62,6 +63,16 @@
             e.preventDefault();
             document.getElementById("PhoneNumber").style.borderColor = "red";
             return false;    
+        }
+        if(ePhone.value.match(phoneno))
+        {
+	        return true;      
+	    }
+        else
+        {
+	    alert("Not a valid Phone Number");
+        document.getElementById("PhoneNumber").style.borderColor = "red";
+	    return false;
         }
         if(ePass.value === ""){
             e.preventDefault();
