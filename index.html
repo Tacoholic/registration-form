@@ -44,6 +44,8 @@
       function validateForm(e) {
        var eName = document.getElementById("FullName");
        var eMail = document.getElementById("Email");
+       var ePhone = document.getElementById("PhoneNumber");
+
         if(eName.value === ""){
           e.preventDefault();
           document.getElementById("FullName").style.borderColor = "red";
@@ -54,6 +56,12 @@
             document.getElementById("Email").style.borderColor = "red";
             return false;
         }
+        if(ePhone.value === ""){
+            e.preventDefault();
+            document.getElementById("PhoneNumber").style.borderColor = "red";
+            return false;    
+        }
+
 
    }
 
