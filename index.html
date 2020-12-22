@@ -8,7 +8,7 @@
     <form class="form" onsubmit="validateForm(event)">
        <div>
            <label>Full Name</label></br>
-            <input type="text" placeholder="John" id="FullName"></input>
+            <input type="text" placeholder="John Doe" id="FullName"></input>
         </div>
         <div>
             <label>Email</label></br>
@@ -46,7 +46,7 @@
        var eMail = document.getElementById("Email");
         if(eName.value === ""){
           e.preventDefault();
-          alert("Please enter your name");
+          document.getElementById("FullName").style.borderColor = "red";
           return false;
         }   
         if(eMail.value === ""){
