@@ -51,7 +51,7 @@
         }   
         if(eMail.value === ""){
             e.preventDefault();
-            alert("Please enter your email");
+            document.getElementById("Email").style.borderColor = "red";
             return false;
         }
 
