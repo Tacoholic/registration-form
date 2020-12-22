@@ -45,6 +45,7 @@
        var eName = document.getElementById("FullName");
        var eMail = document.getElementById("Email");
        var ePhone = document.getElementById("PhoneNumber");
+       var ePass = document.getElementById("Password");
 
         if(eName.value === ""){
           e.preventDefault();
@@ -59,6 +60,11 @@
         if(ePhone.value === ""){
             e.preventDefault();
             document.getElementById("PhoneNumber").style.borderColor = "red";
+            return false;    
+        }
+        if(ePass.value === ""){
+            e.preventDefault();
+            document.getElementById("Password").style.borderColor = "red";
             return false;    
         }
 
