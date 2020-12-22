@@ -46,6 +46,7 @@
        var eMail = document.getElementById("Email");
        var ePhone = document.getElementById("PhoneNumber");
        var ePass = document.getElementById("Password");
+       var eCnfmPass = document.getElementById("ConfirmPassword")
 
         if(eName.value === ""){
           e.preventDefault();
@@ -67,8 +68,11 @@
             document.getElementById("Password").style.borderColor = "red";
             return false;    
         }
-
-
+        if(eCnfmPass.value === ""){
+            e.preventDefault();
+            document.getElementById("ConfirmPassword").style.borderColor = "red";
+            return false;    
+        }
    }
 
 </script>
