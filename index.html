@@ -7,24 +7,43 @@
 <div class="container">
     <form class="form" onsubmit="validateForm(event)">
        <div>
-           <label>Full Name</label></br>
-            <input type="text" placeholder="John Doe" id="FullName"></input>
+            <label id="FullNameLabel">Full Name</label></br>
+              <input 
+                type="text" 
+                placeholder="John Doe" 
+                id="FullName">
+            </input>
         </div>
         <div>
             <label>Email</label></br>
-             <input type="text" placeholder="johndoe@email.com" id="Email"></input>
+             <input 
+                type="text" 
+                placeholder="johndoe@email.com" 
+                id="Email">
+            </input>
          </div>
          <div>
             <label>Phone Number</label></br>
-             <input type="text" placeholder="(123) 456-7890" id="PhoneNumber"></input>
+             <input 
+                type="text" 
+                placeholder="(123) 456-7890" 
+                id="PhoneNumber">
+            </input>
          </div>
          <div>
             <label>Password</label></br>
-             <input type="password" placeholder="Password" id="Password"></input>
+             <input 
+                type="password" 
+                placeholder="Password" 
+                id="Password">
+            </input>
          </div>
          <div>
             <label>Confirm Password</label></br>
-             <input type="password" placeholder="Confirm Password" id="ConfirmPassword"></input>
+             <input 
+                type="password" 
+                placeholder="Confirm Password" 
+                id="ConfirmPassword"></input>
          </div>
         <button type="submit" value="submit">Sign Me Up!</button>
     </form>
@@ -41,24 +60,32 @@
 
 
 <script>
-      function validateForm(e) {
+    function validateForm(e) 
+    {
        var eName = document.getElementById("FullName");
        var eMail = document.getElementById("Email");
        var ePhone = document.getElementById("PhoneNumber");
        var ePass = document.getElementById("Password");
        var eCnfmPass = document.getElementById("ConfirmPassword")
        var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+       var text = "Input not valid"
+  
 
+        //Name input validation
         if(eName.value === ""){
           e.preventDefault();
           document.getElementById("FullName").style.borderColor = "red";
+          document.getElementById("FullNameLabel").innerHTML = text;
+          document.getElementById("FullNameLabel").style.color = "red";
           return false;
         }   
+        //Email input validation
         if(eMail.value === ""){
             e.preventDefault();
             document.getElementById("Email").style.borderColor = "red";
             return false;
         }
+        //Phone number input validation
         if(ePhone.value === ""){
             e.preventDefault();
             document.getElementById("PhoneNumber").style.borderColor = "red";
@@ -74,11 +101,13 @@
         document.getElementById("PhoneNumber").style.borderColor = "red";
 	    return false;
         }
+        //Password input validation
         if(ePass.value === ""){
             e.preventDefault();
             document.getElementById("Password").style.borderColor = "red";
             return false;    
         }
+        //Confirm password input validation
         if(eCnfmPass.value === ""){
             e.preventDefault();
             document.getElementById("ConfirmPassword").style.borderColor = "red";
