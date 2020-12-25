@@ -15,7 +15,7 @@
             </input>
         </div>
         <div>
-            <label>Email</label></br>
+            <label id="EmailLabel">Email</label></br>
              <input 
                 type="text" 
                 placeholder="johndoe@email.com" 
@@ -62,20 +62,22 @@
 <script>
     function validateForm(e) 
     {
-       var eName = document.getElementById("FullName");
-       var eMail = document.getElementById("Email");
-       var ePhone = document.getElementById("PhoneNumber");
-       var ePass = document.getElementById("Password");
-       var eCnfmPass = document.getElementById("ConfirmPassword")
-       var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-       var text = "Input not valid"
+       const eName = document.getElementById("FullName");
+       const eMail = document.getElementById("Email");
+       const ePhone = document.getElementById("PhoneNumber");
+       const ePass = document.getElementById("Password");
+       const eCnfmPass = document.getElementById("ConfirmPassword")
+       const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+       const fullNameText = "Oops, please fill out your name"
+       const emailText = "Oops, please enter a valid email"
+
   
 
         //Name input validation
         if(eName.value === ""){
           e.preventDefault();
           document.getElementById("FullName").style.borderColor = "red";
-          document.getElementById("FullNameLabel").innerHTML = text;
+          document.getElementById("FullNameLabel").innerHTML = fullNameText;
           document.getElementById("FullNameLabel").style.color = "red";
           return false;
         }   
@@ -83,6 +85,8 @@
         if(eMail.value === ""){
             e.preventDefault();
             document.getElementById("Email").style.borderColor = "red";
+            document.getElementById("EmailLabel").innerHTML = emailText;
+            document.getElementById("EmailLabel").style.color = "red";
             return false;
         }
         //Phone number input validation
