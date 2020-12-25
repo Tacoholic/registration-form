@@ -23,7 +23,7 @@
             </input>
          </div>
          <div>
-            <label>Phone Number</label></br>
+            <label id="PhoneNumberLabel">Phone Number</label></br>
              <input 
                 type="text" 
                 placeholder="(123) 456-7890" 
@@ -31,7 +31,7 @@
             </input>
          </div>
          <div>
-            <label>Password</label></br>
+            <label id="PasswordLabel">Password</label></br>
              <input 
                 type="password" 
                 placeholder="Password" 
@@ -39,7 +39,7 @@
             </input>
          </div>
          <div>
-            <label>Confirm Password</label></br>
+            <label id="ConfirmPswdLabel">Confirm Password</label></br>
              <input 
                 type="password" 
                 placeholder="Confirm Password" 
@@ -68,8 +68,10 @@
        const ePass = document.getElementById("Password");
        const eCnfmPass = document.getElementById("ConfirmPassword")
        const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-       const fullNameText = "Oops, please fill out your name"
-       const emailText = "Oops, please enter a valid email"
+       const fullNameText = "Oops, please fill out your name";
+       const emailText = "Oops, please enter a valid email";
+       const phoneText = "Oops, please enter a valid phone number";
+       const passText = "Please enter a valid password";
 
   
 
@@ -93,6 +95,8 @@
         if(ePhone.value === ""){
             e.preventDefault();
             document.getElementById("PhoneNumber").style.borderColor = "red";
+            document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
+            document.getElementById("PhoneNumberLabel").style.color = "red";
             return false;    
         }
         if(ePhone.value.match(phoneno))
@@ -101,9 +105,11 @@
 	    }
         else
         {
-	    alert("Not a valid Phone Number");
-        document.getElementById("PhoneNumber").style.borderColor = "red";
-	    return false;
+	    // alert("Not a valid Phone Number");
+            document.getElementById("PhoneNumber").style.borderColor = "red";
+            document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
+            document.getElementById("PhoneNumberLabel").style.color = "red";
+	        return false;
         }
         //Password input validation
         if(ePass.value === ""){
