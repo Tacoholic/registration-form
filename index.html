@@ -32,7 +32,7 @@
              <input 
                 name="Password"
                 id="Password"
-                type="password" 
+                type="Password" 
                 placeholder="Password"
                 onkeyup='passConfirm();'/>
          </div>
@@ -41,7 +41,7 @@
              <input 
                 name="ConfirmPassword"
                 id="ConfirmPassword"
-                type="password" 
+                type="Password" 
                 placeholder="Confirm Password" 
                 onkeyup='passConfirm();'/>  
          </div>
@@ -61,82 +61,90 @@
 
 
 <script>
-    function validateForm(e) 
-    {
+    function validateForm(e) {
        const eName = document.getElementById("FullName");
        const eMail = document.getElementById("Email");
        const ePhone = document.getElementById("PhoneNumber");
        const ePass = document.getElementById("Password");
-       const eCnfmPass = document.getElementById("ConfirmPassword")
+       const eCnfmPass = document.getElementById("ConfirmPassword");
        const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
        const fullNameText = "Oops, please fill out your name";
-       const emailText = "Oops, please enter a valid email";
-       const phoneText = "Oops, please enter a valid phone number";
+       const emailText = "Please enter a valid email";
+       const phoneText = "Please enter a valid phone number";
        const passText = "Please enter a valid password";
+       const confirmText = "Please confirm your password";
 
-  
-
-        //Name input validation
+        //Name input validation - If input is left empty
         if(eName.value === ""){
           e.preventDefault();
           document.getElementById("FullName").style.borderColor = "red";
           document.getElementById("FullNameLabel").innerHTML = fullNameText;
           document.getElementById("FullNameLabel").style.color = "red";
-          return false;
+         
         }   
-        //Email input validation
+        //Email input validation - If input is left empty
         if(eMail.value === ""){
             e.preventDefault();
             document.getElementById("Email").style.borderColor = "red";
             document.getElementById("EmailLabel").innerHTML = emailText;
             document.getElementById("EmailLabel").style.color = "red";
-            return false;
+            
         }
-        //Phone number input validation
+        //Phone number input validation - If input is left empty
         if(ePhone.value === ""){
             e.preventDefault();
             document.getElementById("PhoneNumber").style.borderColor = "red";
             document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
             document.getElementById("PhoneNumberLabel").style.color = "red";
-            return false;    
+              
         }
+         
+         //Phone number input validation - checks to see if there is a missing number or character that is not a number
         if(ePhone.value.match(phoneno))
         {
 	        return true;      
 	    }
         else
         {
-	    // alert("Not a valid Phone Number");
-            document.getElementById("PhoneNumber").style.borderColor = "red";
-            document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
-            document.getElementById("PhoneNumberLabel").style.color = "red";
-	        return false;
+            alert("Please check your phone number and enter it again")
+            // document.getElementById("PhoneNumber").style.borderColor = "red";
+            // document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
+            // document.getElementById("PhoneNumberLabel").style.color = "red";
+	        
         }
-        //Password input validation
+        
+        //Password input validation - If input is left empty
         if(ePass.value === ""){
             e.preventDefault();
             document.getElementById("Password").style.borderColor = "red";
-            return false;    
+            document.getElementById("PasswordLabel").innerHTML = passText;
+            document.getElementById("PasswordLabel").style.color = "red";
+               
         }
-        //Confirm password input validation
+        //Confirm password input validation -  If input is left empty
         if(eCnfmPass.value === ""){
             e.preventDefault();
             document.getElementById("ConfirmPassword").style.borderColor = "red";
-            return false;    
+            document.getElementById("ConfirmPswdLabel").innerHTML = confirmText;
+            document.getElementById("ConfirmPswdLabel").style.color = "red";
         }
    }
 
-    //Password and Confirm Password match
+    //Checks to make sure that both password and confirm passwords match
     var passConfirm = function() {
          if (document.getElementById("Password").value ==
              document.getElementById("ConfirmPassword").value) {
              document.getElementById("Message").style.color = "green";
+             document.getElementById("Message").style.fontWeight = "Heavy";
              document.getElementById("Message").innerHTML = "Passwords match!"
         } else {
             document.getElementById("Message").style.color = "red";
+            document.getElementById("Message").style.fontWeight = "Heavy";
             document.getElementById("Message").innerHTML = "Passwords do NOT match!"
         }
     }
+
+   
 
 </script>
 
