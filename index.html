@@ -29,12 +29,34 @@
          </div>
          <div>
             <label id="PasswordLabel">Password</label></br>
+            <div class="PassToolTip">
+
+                <span class="ToolTipText">
+                    <p>Your password should:</p>
+           
+                    <ul>
+                        <li>
+                          Have atleast 8 characters
+                        </li>
+                        <li>
+                           Have one uppercase letter
+                        </li>
+                        <li>
+                           Have one smallcase letter
+                        </li>
+                        <li>
+                          Have one special character
+                        </li>
+                    </ul>
+         
+                </span>
              <input 
                 name="Password"
                 id="Password"
                 type="Password" 
                 placeholder="Password"
                 onkeyup='passConfirm();'/>
+            </div>
          </div>
          <div>
             <label id="ConfirmPswdLabel">Confirm Password</label></br>
@@ -106,10 +128,9 @@
 	    }
         else
         {
-            alert("Please check your phone number and enter it again")
-            // document.getElementById("PhoneNumber").style.borderColor = "red";
-            // document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
-            // document.getElementById("PhoneNumberLabel").style.color = "red";
+            document.getElementById("PhoneNumber").style.borderColor = "red";
+            document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
+            document.getElementById("PhoneNumberLabel").style.color = "red";
 	        
         }
         
@@ -205,7 +226,45 @@ width: 30%;
 margin-top: 15px;
 margin-bottom: 15px; 
 
+}
 
+.PassToolTip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.PassToolTip .ToolTipText {
+  visibility: hidden;
+  width: 250px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 25px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 40%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.PassToolTip .ToolTipText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.PassToolTip:hover .ToolTipText {
+  visibility: visible;
+  opacity: 1;
 }
 
 
