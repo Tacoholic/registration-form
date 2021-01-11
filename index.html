@@ -1,36 +1,43 @@
 <!DOCTYPE html>
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/776e94f922.js" crossorigin="anonymous"></script>
+
 <html>
 <head>
 <title>Really Cool Registration Page</title>
 </head>
 <h1>Hello, please register!</h1>
 <div class="container">
-    <form class="form" onsubmit="validateForm(event)">
-       <div>
+  <form class="form" onsubmit="validateForm(event)">
+    <fieldset>
+     
             <label id="FullNameLabel">Full Name</label></br>
               <input 
                 type="text" 
                 placeholder="John Doe" 
                 id="FullName"/>
-        </div>
-        <div>
+
             <label id="EmailLabel">Email</label></br>
              <input 
-                type="text" 
+                type="email" 
                 placeholder="johndoe@email.com" 
                 id="Email"/>
-         </div>
-         <div>
+
+
             <label id="PhoneNumberLabel">Phone Number</label></br>
              <input 
-                type="text" 
+                type="tel" 
                 placeholder="(123) 456-7890" 
                 id="PhoneNumber"/>
-         </div>
-         <div>
+
             <label id="PasswordLabel">Password</label></br>
             <div class="PassToolTip">
-
                 <span class="ToolTipText">
                     <p>Your password should:</p>
            
@@ -55,31 +62,20 @@
                 id="Password"
                 type="Password" 
                 placeholder="Password"
-                onkeyup='passConfirm();'/>
+                onchange='passConfirm();'/>
             </div>
-         </div>
-         <div>
             <label id="ConfirmPswdLabel">Confirm Password</label></br>
              <input 
                 name="ConfirmPassword"
                 id="ConfirmPassword"
                 type="Password" 
                 placeholder="Confirm Password" 
-                onkeyup='passConfirm();'/>  
-         </div>
+                onchange='passConfirm();'/>  
          <span id="Message"></span>
         <button type="submit" value="submit">Sign Me Up!</button>
-    </form>
+    </fieldset>
+   </form>
 </div>
-
-
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
-
-<script src="https://kit.fontawesome.com/776e94f922.js" crossorigin="anonymous"></script>
 
 
 <script>
@@ -176,35 +172,37 @@ body{
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 32px;
     text-align: center;
     font-family: 'Nunito', sans-serif;
-    margin-top: 35px;
+    margin-top: 32px;
     color:  rgb(241, 162, 8);
 }
 .container {
-    display: flex;
+    display: grid;
     justify-content: center;
     width: 100%;
 }
-.form {
+
+fieldset{
     background: rgb(241, 162, 8);
     border-radius: 6px;
-    width: 450px;
-    height: 350px;
-    display: flex;
+    width: 420px;
+	height: 350px;
+	padding: 10px 15px 25px 15px;
     align-items: center;
     display: grid;
-    place-items: center;
-    border:2px solid rgb(213, 198, 122);
+    border:4px solid rgb(213, 198, 122);
     margin-top: 15px;
 }
 
 input {
-    width: 375px;
-    height: 25px;
-    border-radius: 5px;
+    width: 100%;
+    height: 28px;
+    border-radius: 4px;
     border:2px solid black;
+    padding: 4px 3px;
+    justify-content: left;
 }
 
 input::placeholder {
@@ -218,7 +216,8 @@ input::placeholder {
 label {
     font-weight: bold;
     font-family: 'Poppins', serif;
-    font-size: 15px;
+    font-size: 16px;
+    margin-bottom: -16px
 }
 
 button {
@@ -227,10 +226,9 @@ border-radius: 20px;
 text-align: center;
 font-weight: 600;
 text-transform: uppercase;
-width: 30%;
+width: 100%;
 margin-top: 15px;
 margin-bottom: 15px; 
-
 }
 
 .PassToolTip {
