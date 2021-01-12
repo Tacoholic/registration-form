@@ -80,6 +80,7 @@
 
 <script>
     function validateForm(e) {
+       e.preventDefault();
        const eName = document.getElementById("FullName");
        const eMail = document.getElementById("Email");
        const ePhone = document.getElementById("PhoneNumber");
@@ -94,7 +95,6 @@
 
         //Name input validation - If input is left empty
         if(eName.value === ""){
-          e.preventDefault();
           document.getElementById("FullName").style.borderColor = "red";
           document.getElementById("FullNameLabel").innerHTML = fullNameText;
           document.getElementById("FullNameLabel").style.color = "red";
@@ -102,7 +102,6 @@
         }   
         //Email input validation - If input is left empty
         if(eMail.value === ""){
-            e.preventDefault();
             document.getElementById("Email").style.borderColor = "red";
             document.getElementById("EmailLabel").innerHTML = emailText;
             document.getElementById("EmailLabel").style.color = "red";
@@ -110,7 +109,6 @@
         }
         //Phone number input validation - If input is left empty
         if(ePhone.value === ""){
-            e.preventDefault();
             document.getElementById("PhoneNumber").style.borderColor = "red";
             document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
             document.getElementById("PhoneNumberLabel").style.color = "red";
@@ -132,7 +130,6 @@
         
         //Password input validation - If input is left empty
         if(ePass.value === ""){
-            e.preventDefault();
             document.getElementById("Password").style.borderColor = "red";
             document.getElementById("PasswordLabel").innerHTML = passText;
             document.getElementById("PasswordLabel").style.color = "red";
@@ -140,7 +137,6 @@
         }
         //Confirm password input validation -  If input is left empty
         if(eCnfmPass.value === ""){
-            e.preventDefault();
             document.getElementById("ConfirmPassword").style.borderColor = "red";
             document.getElementById("ConfirmPswdLabel").innerHTML = confirmText;
             document.getElementById("ConfirmPswdLabel").style.color = "red";
