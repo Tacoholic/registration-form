@@ -41,6 +41,7 @@
                       type="tel" 
                       placeholder="(123) 456-7890" 
                       id="PhoneNumber"/>
+                      <div class="error" id="phoneError"></div>
                 </div>
                 <div class="row">
                    <label>Password</label></br>
@@ -77,8 +78,10 @@
         event.preventDefault();
         var name = document.regForm.FullName.value;
         var email = document.regForm.email.value;
+        var phone = document.regForm.phone.value;
 
-        var nameError = emailError = true;
+
+        var nameError = emailError = phoneError = true;
         if(name == ""){
             printError("nameError", "Please enter your name")
         }
@@ -86,6 +89,10 @@
             printError("emailError", "Please enter a valid email")
 
         }
+        if(phone == ""){
+            printError("phoneError", "Please enter your phone numnber")
+        }
+
     };
 
 
