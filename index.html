@@ -79,6 +79,7 @@
         var name = document.regForm.FullName.value;
         var email = document.regForm.email.value;
         var phone = document.regForm.phone.value;
+        const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
 
         var nameError = emailError = phoneError = true;
@@ -91,6 +92,14 @@
         }
         if(phone == ""){
             printError("phoneError", "Please enter your phone numnber")
+        }
+        if(phone.value == phoneno)
+        {
+	        return true;      
+	    }
+        else
+        {
+            printError("phoneError", "Please enter a valid phone number")
         }
 
     };
