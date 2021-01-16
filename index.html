@@ -14,62 +14,52 @@
 </head>
 <h1>Hello, please register!</h1>
 <div class="container">
-    <form class="form" onsubmit="validateForm(event)">
+    <form name="regForm" class="form" onsubmit="return validateForm(event)">
         <fieldset>
-                  <label id="FullNameLabel">Full Name</label></br>
+                <div class="row">
+                    <label>Full Name</label></br>
                     <input 
+                      name="FullName"
                       type="text" 
                       placeholder="John Doe" 
                       id="FullName"/>
-      
-                  <label id="EmailLabel">Email</label></br>
+                      <div class="error" id="nameError"></div>
+                </div>      
+                <div class="row">
+                  <label>Email</label></br>
                    <input 
+                      name="email"
                       type="email" 
                       placeholder="johndoe@email.com" 
                       id="Email"/>
-      
-      
-                  <label id="PhoneNumberLabel">Phone Number</label></br>
+                      <div class="error" id="emailError"></div>
+                </div>
+                <div class="row">
+                  <label>Phone Number</label></br>
                    <input 
+                      name="phone"
                       type="tel" 
                       placeholder="(123) 456-7890" 
                       id="PhoneNumber"/>
-      
-                  <label id="PasswordLabel">Password</label></br>
-                  <div class="PassToolTip">
-                      <span class="ToolTipText">
-                          <p>Your password should:</p>
-                 
-                          <ul>
-                              <li>
-                                Have atleast 8 characters
-                              </li>
-                              <li>
-                                 Have one uppercase letter
-                              </li>
-                              <li>
-                                 Have one smallcase letter
-                              </li>
-                              <li>
-                                Have one special character
-                              </li>
-                          </ul>
-               
-                      </span>
+                </div>
+                <div class="row">
+                   <label>Password</label></br>
                    <input 
                       name="Password"
                       id="Password"
                       type="Password" 
                       placeholder="Password"
                       onchange='passConfirm();'/>
-                  </div>
-                  <label id="ConfirmPswdLabel">Confirm Password</label></br>
+                </div> 
+                <div class="row">
+                  <label>Confirm Password</label></br>
                    <input 
                       name="ConfirmPassword"
                       id="ConfirmPassword"
                       type="Password" 
                       placeholder="Confirm Password" 
                       onchange='passConfirm();'/>  
+                </div>
                <span id="Message"></span>
               <button type="submit" value="submit">Sign Me Up!</button>
         </fieldset>
@@ -79,84 +69,99 @@
 
 <script>
 
-    function validateForm(e) {
-       e.preventDefault();
-       const eName = document.getElementById("FullName")
-       const eMail = document.getElementById("Email");
-       const ePhone = document.getElementById("PhoneNumber");
-       const ePass = document.getElementById("Password");
-       const eCnfmPass = document.getElementById("ConfirmPassword");
-       const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-       const fullNameText = "Oops, please fill out your name";
-       const emailText = "Please enter a valid email";
-       const phoneText = "Please enter a valid phone number";
-       const passText = "Please enter a valid password";
-       const confirmText = "Please confirm your password";
+    function printError(elemId, message){
+        document.getElementById(elemId).innerHTML = message;
+    }
 
-        //Name input validation - If input is left empty
-        if(eName.value === ""){
-          document.getElementById("FullName").style.borderColor = "red";
-          document.getElementById("FullNameLabel").innerHTML = fullNameText;
-          document.getElementById("FullNameLabel").style.color = "red";
+    function validateForm(){
+        event.preventDefault();
+        var name = document.regForm.FullName.value;
+
+        var nameError = true;
+        if(name == ""){
+            printError("nameError", "Please enter your name")
+        }
+    };
+
+
+//     function validateForm(e) {
+//        e.preventDefault();
+//        const eName = document.getElementById("FullName")
+//        const eMail = document.getElementById("Email");
+//        const ePhone = document.getElementById("PhoneNumber");
+//        const ePass = document.getElementById("Password");
+//        const eCnfmPass = document.getElementById("ConfirmPassword");
+//        const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+//        const fullNameText = "Oops, please fill out your name";
+//        const emailText = "Please enter a valid email";
+//        const phoneText = "Please enter a valid phone number";
+//        const passText = "Please enter a valid password";
+//        const confirmText = "Please confirm your password";
+
+//         //Name input validation - If input is left empty
+//         if(eName.value === ""){
+//           document.getElementById("FullName").style.borderColor = "red";
+//           document.getElementById("FullNameLabel").innerHTML = fullNameText;
+//           document.getElementById("FullNameLabel").style.color = "red";
          
-        }   
-        //Email input validation - If input is left empty
-        if(eMail.value === ""){
-            document.getElementById("Email").style.borderColor = "red";
-            document.getElementById("EmailLabel").innerHTML = emailText;
-            document.getElementById("EmailLabel").style.color = "red";
+//         }   
+//         //Email input validation - If input is left empty
+//         if(eMail.value === ""){
+//             document.getElementById("Email").style.borderColor = "red";
+//             document.getElementById("EmailLabel").innerHTML = emailText;
+//             document.getElementById("EmailLabel").style.color = "red";
             
-        }
-        //Phone number input validation - If input is left empty
-        if(ePhone.value === ""){
-            document.getElementById("PhoneNumber").style.borderColor = "red";
-            document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
-            document.getElementById("PhoneNumberLabel").style.color = "red";
+//         }
+//         //Phone number input validation - If input is left empty
+//         if(ePhone.value === ""){
+//             document.getElementById("PhoneNumber").style.borderColor = "red";
+//             document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
+//             document.getElementById("PhoneNumberLabel").style.color = "red";
               
-        }
+//         }
          
-         //Phone number input validation - checks to see if there is a missing number or character that is not a number
-        if(ePhone.value.match(phoneno))
-        {
-	        return true;      
-	    }
-        else
-        {
-            document.getElementById("PhoneNumber").style.borderColor = "red";
-            document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
-            document.getElementById("PhoneNumberLabel").style.color = "red";
+//          //Phone number input validation - checks to see if there is a missing number or character that is not a number
+//         if(ePhone.value.match(phoneno))
+//         {
+// 	        return true;      
+// 	    }
+//         else
+//         {
+//             document.getElementById("PhoneNumber").style.borderColor = "red";
+//             document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
+//             document.getElementById("PhoneNumberLabel").style.color = "red";
 	        
-        }
+//         }
         
-        //Password input validation - If input is left empty
-        if(ePass.value === ""){
-            document.getElementById("Password").style.borderColor = "red";
-            document.getElementById("PasswordLabel").innerHTML = passText;
-            document.getElementById("PasswordLabel").style.color = "red";
+//         //Password input validation - If input is left empty
+//         if(ePass.value === ""){
+//             document.getElementById("Password").style.borderColor = "red";
+//             document.getElementById("PasswordLabel").innerHTML = passText;
+//             document.getElementById("PasswordLabel").style.color = "red";
                
-        }
-        //Confirm password input validation -  If input is left empty
-        if(eCnfmPass.value === ""){
-            document.getElementById("ConfirmPassword").style.borderColor = "red";
-            document.getElementById("ConfirmPswdLabel").innerHTML = confirmText;
-            document.getElementById("ConfirmPswdLabel").style.color = "red";
-        }
+//         }
+//         //Confirm password input validation -  If input is left empty
+//         if(eCnfmPass.value === ""){
+//             document.getElementById("ConfirmPassword").style.borderColor = "red";
+//             document.getElementById("ConfirmPswdLabel").innerHTML = confirmText;
+//             document.getElementById("ConfirmPswdLabel").style.color = "red";
+//         }
 
 
-         //Checks to make sure that both password and confirm passwords match
-        var passConfirm = function() {
-         if (document.getElementById("Password").value ==
-             document.getElementById("ConfirmPassword").value) {
-             document.getElementById("Message").style.color = "green";
-             document.getElementById("Message").style.fontWeight = "Heavy";
-             document.getElementById("Message").innerHTML = "Passwords match!"
-        } else {
-            document.getElementById("Message").style.color = "red";
-            document.getElementById("Message").style.fontWeight = "Heavy";
-            document.getElementById("Message").innerHTML = "Passwords do NOT match!"
-        }
-     }
-   }
+//          //Checks to make sure that both password and confirm passwords match
+//         var passConfirm = function() {
+//          if (document.getElementById("Password").value ==
+//              document.getElementById("ConfirmPassword").value) {
+//              document.getElementById("Message").style.color = "green";
+//              document.getElementById("Message").style.fontWeight = "Heavy";
+//              document.getElementById("Message").innerHTML = "Passwords match!"
+//         } else {
+//             document.getElementById("Message").style.color = "red";
+//             document.getElementById("Message").style.fontWeight = "Heavy";
+//             document.getElementById("Message").innerHTML = "Passwords do NOT match!"
+//         }
+//      }
+//    }
 
    
 
@@ -267,5 +272,7 @@ margin-bottom: 15px;
   opacity: 1;
 }
 
-
+.error{
+    color: red;
+}
 </style>
