@@ -23,7 +23,7 @@
                       type="text" 
                       placeholder="John Doe" 
                       id="FullName"/>
-                      <div class="error" id="nameError"></div>
+                      <span class="error" id="nameError"></span>
                 </div>      
                 <div class="row">
                   <label>Email</label></br>
@@ -32,7 +32,7 @@
                       type="email" 
                       placeholder="johndoe@email.com" 
                       id="Email"/>
-                      <div class="error" id="emailError"></div>
+                      <span class="error" id="emailError"></span>
                 </div>
                 <div class="row">
                   <label>Phone Number</label></br>
@@ -41,7 +41,7 @@
                       type="tel" 
                       placeholder="(123) 456-7890" 
                       id="PhoneNumber"/>
-                      <div class="error" id="phoneError"></div>
+                      <span class="error" id="phoneError"></span>
                 </div>
                 <div class="row">
                    <label>Password</label></br>
@@ -49,9 +49,9 @@
                       name="Password"
                       id="Password"
                       type="Password" 
-                      placeholder="Password"
-                      onchange='passConfirm();'/>
-                      <div class="error" id="passwordError"></div>
+                      placeholder="Password"/>
+                    
+                      <span class="error" id="passwordError"></span>
                 </div> 
                 <div class="row">
                   <label>Confirm Password</label></br>
@@ -59,11 +59,11 @@
                       name="ConfirmPassword"
                       id="ConfirmPassword"
                       type="Password" 
-                      placeholder="Confirm Password" 
-                      onchange='passConfirm();'/>  
-                      <div class="error" id="confirmpassError"></div>
+                      placeholder="Confirm Password"/> 
+                 
+                      <span class="error" id="confirmpassError"></span>
                 </div>
-               <span id="Message"></span>
+              <span id="matchingPassword">
               <button type="submit" value="submit">Sign Me Up!</button>
         </fieldset>
     </form>
@@ -82,10 +82,10 @@
         var email = document.regForm.email.value;
         var phone = document.regForm.phone.value;
         var password = document.regForm.Password.value; 
-        var confirmpassError = document.regForm.ConfirmPassword.value;
+        var confirmPassword = document.regForm.ConfirmPassword.value;
         const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
-        var nameError = emailError = phoneError = passwordError = true;
+        var nameError = emailError = phoneError = passwordError = matchingPassword = true;
         //Empty name input error message
         if(name == ""){
             printError("nameError", "Please enter your name")
@@ -100,7 +100,7 @@
             printError("phoneError", "Please enter your phone numnber")
         }
          //Non valid phone number error messsage
-        if(phone.value == phoneno)
+        if(phone.match(phoneno))
         {
 	        return true;      
 	    }
@@ -108,95 +108,28 @@
         {
             printError("phoneError", "Please enter a valid phone number")
         }
-
+        //Empty Password input
         if(password == ""){
             printError("passwordError", "Please enter a password")
         }
-        if(confirmpassError == ""){
+        //Empty Cofirm Password input
+        if(confirmPassword == ""){
             printError("confirmpassError", "Please confirm your password")
         }
     };
 
-
-//     function validateForm(e) {
-//        e.preventDefault();
-//        const eName = document.getElementById("FullName")
-//        const eMail = document.getElementById("Email");
-//        const ePhone = document.getElementById("PhoneNumber");
-//        const ePass = document.getElementById("Password");
-//        const eCnfmPass = document.getElementById("ConfirmPassword");
-//        const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-//        const fullNameText = "Oops, please fill out your name";
-//        const emailText = "Please enter a valid email";
-//        const phoneText = "Please enter a valid phone number";
-//        const passText = "Please enter a valid password";
-//        const confirmText = "Please confirm your password";
-
-//         //Name input validation - If input is left empty
-//         if(eName.value === ""){
-//           document.getElementById("FullName").style.borderColor = "red";
-//           document.getElementById("FullNameLabel").innerHTML = fullNameText;
-//           document.getElementById("FullNameLabel").style.color = "red";
-         
-//         }   
-//         //Email input validation - If input is left empty
-//         if(eMail.value === ""){
-//             document.getElementById("Email").style.borderColor = "red";
-//             document.getElementById("EmailLabel").innerHTML = emailText;
-//             document.getElementById("EmailLabel").style.color = "red";
-            
-//         }
-//         //Phone number input validation - If input is left empty
-//         if(ePhone.value === ""){
-//             document.getElementById("PhoneNumber").style.borderColor = "red";
-//             document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
-//             document.getElementById("PhoneNumberLabel").style.color = "red";
-              
-//         }
-         
-//          //Phone number input validation - checks to see if there is a missing number or character that is not a number
-//         if(ePhone.value.match(phoneno))
-//         {
-// 	        return true;      
-// 	    }
-//         else
-//         {
-//             document.getElementById("PhoneNumber").style.borderColor = "red";
-//             document.getElementById("PhoneNumberLabel").innerHTML = phoneText;
-//             document.getElementById("PhoneNumberLabel").style.color = "red";
-	        
-//         }
-        
-//         //Password input validation - If input is left empty
-//         if(ePass.value === ""){
-//             document.getElementById("Password").style.borderColor = "red";
-//             document.getElementById("PasswordLabel").innerHTML = passText;
-//             document.getElementById("PasswordLabel").style.color = "red";
-               
-//         }
-//         //Confirm password input validation -  If input is left empty
-//         if(eCnfmPass.value === ""){
-//             document.getElementById("ConfirmPassword").style.borderColor = "red";
-//             document.getElementById("ConfirmPswdLabel").innerHTML = confirmText;
-//             document.getElementById("ConfirmPswdLabel").style.color = "red";
-//         }
-
-
-//          //Checks to make sure that both password and confirm passwords match
-//         var passConfirm = function() {
-//          if (document.getElementById("Password").value ==
-//              document.getElementById("ConfirmPassword").value) {
-//              document.getElementById("Message").style.color = "green";
-//              document.getElementById("Message").style.fontWeight = "Heavy";
-//              document.getElementById("Message").innerHTML = "Passwords match!"
-//         } else {
-//             document.getElementById("Message").style.color = "red";
-//             document.getElementById("Message").style.fontWeight = "Heavy";
-//             document.getElementById("Message").innerHTML = "Passwords do NOT match!"
-//         }
-//      }
-//    }
-
+    // var passConfirm = function() {
+    //      if (document.getElementById("Password").value ==
+    //          document.getElementById("ConfirmPassword").value) {
+    //          document.getElementById("Message").style.color = "green";
+    //          document.getElementById("Message").style.fontWeight = "Heavy";
+    //          document.getElementById("Message").innerHTML = "Passwords match!"
+    //     } else {
+    //         document.getElementById("Message").style.color = "red";
+    //         document.getElementById("Message").style.fontWeight = "Heavy";
+    //         document.getElementById("Message").innerHTML = "Passwords do NOT match!"
+    //     }
+    // }
    
 
 </script>
