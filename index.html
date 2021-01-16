@@ -51,6 +51,7 @@
                       type="Password" 
                       placeholder="Password"
                       onchange='passConfirm();'/>
+                      <div class="error" id="passwordError"></div>
                 </div> 
                 <div class="row">
                   <label>Confirm Password</label></br>
@@ -60,6 +61,7 @@
                       type="Password" 
                       placeholder="Confirm Password" 
                       onchange='passConfirm();'/>  
+                      <div class="error" id="confirmpassError"></div>
                 </div>
                <span id="Message"></span>
               <button type="submit" value="submit">Sign Me Up!</button>
@@ -79,20 +81,25 @@
         var name = document.regForm.FullName.value;
         var email = document.regForm.email.value;
         var phone = document.regForm.phone.value;
+        var password = document.regForm.Password.value; 
+        var confirmpassError = document.regForm.ConfirmPassword.value;
         const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
-
-        var nameError = emailError = phoneError = true;
+        var nameError = emailError = phoneError = passwordError = true;
+        //Empty name input error message
         if(name == ""){
             printError("nameError", "Please enter your name")
         }
+         //Empty email input error message
         if(email ==""){
             printError("emailError", "Please enter a valid email")
 
         }
+         //Empty phone input error message
         if(phone == ""){
             printError("phoneError", "Please enter your phone numnber")
         }
+         //Non valid phone number error messsage
         if(phone.value == phoneno)
         {
 	        return true;      
@@ -102,6 +109,12 @@
             printError("phoneError", "Please enter a valid phone number")
         }
 
+        if(password == ""){
+            printError("passwordError", "Please enter a password")
+        }
+        if(confirmpassError == ""){
+            printError("confirmpassError", "Please confirm your password")
+        }
     };
 
 
