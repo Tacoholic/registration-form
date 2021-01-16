@@ -76,10 +76,15 @@
     function validateForm(){
         event.preventDefault();
         var name = document.regForm.FullName.value;
+        var email = document.regForm.email.value;
 
-        var nameError = true;
+        var nameError = emailError = true;
         if(name == ""){
             printError("nameError", "Please enter your name")
+        }
+        if(email ==""){
+            printError("emailError", "Please enter a valid email")
+
         }
     };
 
