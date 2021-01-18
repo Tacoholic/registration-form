@@ -88,16 +88,16 @@
 
         var nameError = emailError = phoneError = passwordError = true;
         //Empty name input error message
-        if(name == ""){
+        if(!name){
             printError("nameError", "Please enter your name")
         }
          //Empty email input error message
-        if(email ==""){
+        if(!email){
             printError("emailError", "Please enter a valid email")
 
         }
          //Empty phone input error message
-        if(phone == ""){
+        if(!phone){
             printError("phoneError", "Please enter your phone numnber")
         }
          //Non valid phone number error messsage
@@ -110,11 +110,11 @@
             printError("phoneError", "Please enter a valid phone number")
         }
         //Empty Password input
-        if(password == ""){
+        if(!password){
             printError("passwordError", "Please enter a password")
         }
         //Empty Cofirm Password input
-        if(confirmPassword == ""){
+        if(!confirmPassword){
             printError("confirmpassError", "Please confirm your password")
         }
     };
