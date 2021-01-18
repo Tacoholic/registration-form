@@ -23,7 +23,7 @@
                       type="text" 
                       placeholder="John Doe" 
                       id="FullName"/>
-                      <span class="error" id="nameError"></span>
+                      <div class="error" id="nameError"></div>
                 </div>      
                 <div class="row">
                   <label>Email</label></br>
@@ -32,7 +32,7 @@
                       type="email" 
                       placeholder="johndoe@email.com" 
                       id="Email"/>
-                      <span class="error" id="emailError"></span>
+                      <div class="error" id="emailError"></div>
                 </div>
                 <div class="row">
                   <label>Phone Number</label></br>
@@ -41,7 +41,7 @@
                       type="tel" 
                       placeholder="(123) 456-7890" 
                       id="PhoneNumber"/>
-                      <span class="error" id="phoneError"></span>
+                      <div class="error" id="phoneError"></div>
                 </div>
                 <div class="row">
                    <label>Password</label></br>
@@ -49,9 +49,9 @@
                       name="Password"
                       id="Password"
                       type="Password" 
-                      placeholder="Password"/>
-                    
-                      <span class="error" id="passwordError"></span>
+                      placeholder="Password"
+                      onchange='passConfirm();'/>
+                      <div class="error" id="passwordError"></div>
                 </div> 
                 <div class="row">
                   <label>Confirm Password</label></br>
@@ -59,12 +59,13 @@
                       name="ConfirmPassword"
                       id="ConfirmPassword"
                       type="Password" 
-                      placeholder="Confirm Password"/> 
-                 
-                      <span class="error" id="confirmpassError"></span>
+                      placeholder="Confirm Password"
+                      onchange='passConfirm();'/> 
+                      <div class="error" id="confirmpassError"></div>
                 </div>
               <span id="matchingPassword">
-              <button type="submit" value="submit">Sign Me Up!</button>
+                <button type="submit" value="submit">Sign Me Up!</button></span>
+                <p id="message"></p>
         </fieldset>
     </form>
 </div>
@@ -85,7 +86,7 @@
         var confirmPassword = document.regForm.ConfirmPassword.value;
         const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 
-        var nameError = emailError = phoneError = passwordError = matchingPassword = true;
+        var nameError = emailError = phoneError = passwordError = true;
         //Empty name input error message
         if(name == ""){
             printError("nameError", "Please enter your name")
@@ -116,21 +117,32 @@
         if(confirmPassword == ""){
             printError("confirmpassError", "Please confirm your password")
         }
+
+         //Make sure passwords match
+        if(password.match(confirmPassword))
+        {
+            printPass("matchingPassword", "Passwords match")
+            document.getElementById("matchingPassword").style.color = "green";
+        }
+        else {
+            printPass("matchingPassword", "Passwords do no match")
+            document.getElementById("matchingPassword").style.color = "red";
+        }
     };
 
-    // var passConfirm = function() {
-    //      if (document.getElementById("Password").value ==
-    //          document.getElementById("ConfirmPassword").value) {
-    //          document.getElementById("Message").style.color = "green";
-    //          document.getElementById("Message").style.fontWeight = "Heavy";
-    //          document.getElementById("Message").innerHTML = "Passwords match!"
-    //     } else {
-    //         document.getElementById("Message").style.color = "red";
-    //         document.getElementById("Message").style.fontWeight = "Heavy";
-    //         document.getElementById("Message").innerHTML = "Passwords do NOT match!"
-    //     }
-    // }
-   
+
+    var passConfirm = function() {  
+        if (document.getElementById("Password").value == document.getElementById("ConfirmPassword").value) 
+        {   
+            document.getElementById("message").style.color = "green";   
+            document.getElementById("message").style.fontWeight = "Heavy";   
+            document.getElementById("message").innerHTML = "Passwords match!"  
+        } else {   
+            document.getElementById("message").style.color = "red";   
+            document.getElementById("message").style.fontWeight = "Heavy";   
+            document.getElementById("message").innerHTML = "Passwords do NOT match!"  
+         } 
+    }
 
 </script>
 
@@ -140,6 +152,9 @@ body{
     background-color: rgb(23, 55, 83);
 }
 
+.row{
+    padding-bottom: 12px;
+}
 h1 {
     font-size: 32px;
     text-align: center;
@@ -157,7 +172,7 @@ fieldset{
     background: rgb(241, 162, 8);
     border-radius: 6px;
     width: 420px;
-	height: 350px;
+	height: 450px;
 	padding: 10px 15px 25px 15px;
     align-items: center;
     display: grid;
@@ -186,7 +201,7 @@ label {
     font-weight: bold;
     font-family: 'Poppins', serif;
     font-size: 16px;
-    margin-bottom: -16px
+    margin-bottom: -16px;
 }
 
 button {
@@ -241,5 +256,14 @@ margin-bottom: 15px;
 
 .error{
     color: red;
+    height:0px 
 }
+
+#message{
+    text-align: center;
+}
+
+
 </style>
+
+
