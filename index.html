@@ -117,17 +117,6 @@
         if(confirmPassword == ""){
             printError("confirmpassError", "Please confirm your password")
         }
-
-         //Make sure passwords match
-        if(password.match(confirmPassword))
-        {
-            printPass("matchingPassword", "Passwords match")
-            document.getElementById("matchingPassword").style.color = "green";
-        }
-        else {
-            printPass("matchingPassword", "Passwords do no match")
-            document.getElementById("matchingPassword").style.color = "red";
-        }
     };
 
 
@@ -172,7 +161,7 @@ fieldset{
     background: rgb(241, 162, 8);
     border-radius: 6px;
     width: 420px;
-	height: 450px;
+	height: 475px;
 	padding: 10px 15px 25px 15px;
     align-items: center;
     display: grid;
@@ -238,22 +227,6 @@ button {
   transition: opacity 0.3s;
 }
 
-.PassToolTip .ToolTipText::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.PassToolTip:hover .ToolTipText {
-  visibility: visible;
-  opacity: 1;
-}
-
 .error{
     color: red;
     height:0px; 
@@ -262,6 +235,8 @@ button {
 
 #message{
     text-align: center;
+    font-family: 'Poppins', serif;
+
 }
 
 
